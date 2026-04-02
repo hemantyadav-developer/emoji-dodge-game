@@ -1,52 +1,137 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Emoji Dodge
 
-# Getting Started
+A fun and addictive arcade-style mobile game built with React Native. Dodge falling emojis as long as possible to achieve the highest score!
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Project Overview
 
-## Step 1: Start Metro
+Emoji Dodge is an endless runner game where players control a character at the bottom of the screen and must avoid various falling emoji obstacles. The game features:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Home Screen**: Game title, description, and start button
+- **Gameplay**: Real-time dodging with continuous falling obstacles
+- **Controls**: Drag gestures, tap controls, and arrow buttons for movement
+- **Scoring**: Time-based scoring system with best score tracking
+- **Game Over**: Collision detection with restart functionality
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+The objective is simple: survive as long as possible while avoiding collisions with falling emojis!
+
+## Technology Stack
+
+- **React Native**: Cross-platform mobile app framework
+- **TypeScript**: Type-safe JavaScript for better development experience
+- **React Native Safe Area Context**: Handles safe area insets for different devices
+- **Metro**: JavaScript bundler for React Native
+- **Jest**: Testing framework (configured but not extensively used)
+
+## Development Approach
+
+The game was developed using a component-based architecture with React hooks for state management. Key technical decisions:
+
+- **Single-file implementation**: All game logic contained in `App.tsx` for simplicity
+- **Game loop**: Uses `setInterval` for consistent 30ms game ticks
+- **Collision detection**: Axis-aligned bounding box (AABB) collision system
+- **Performance**: Efficient rendering with minimal re-renders using refs for game state
+- **Controls**: PanResponder for drag gestures plus button controls for accessibility
+- **Scoring**: Time-based system (score = floor(time_elapsed / 100))
+
+## Steps to Run the Project
+
+### Prerequisites
+
+- Node.js (version 16 or later)
+- npm or yarn
+- React Native development environment set up
+- Android Studio (for Android) or Xcode (for iOS)
+
+### Installation
+
+1. Clone or navigate to the project directory:
+   ```sh
+   cd EmojiDodge
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running on Android
+
+1. Start Metro bundler:
+   ```sh
+   npm start
+   ```
+
+2. In a new terminal, run the Android app:
+   ```sh
+   npm run android
+   # or
+   npx react-native run-android
+   ```
+
+### Running on iOS
+
+1. Install CocoaPods dependencies:
+   ```sh
+   cd ios
+   bundle install
+   bundle exec pod install
+   cd ..
+   ```
+
+2. Start Metro bundler:
+   ```sh
+   npm start
+   ```
+
+3. In a new terminal, run the iOS app:
+   ```sh
+   npm run ios
+   # or
+   npx react-native run-ios
+   ```
+
+### Running Tests
 
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+npm test
 ```
 
-## Step 2: Build and run your app
+## Game Features
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+- **Multiple Control Methods**: Drag, tap, or button controls
+- **Random Obstacles**: Various emoji types spawn randomly
+- **Progressive Difficulty**: Continuous spawning with varying speeds
+- **Score Tracking**: Real-time score display with best score persistence
+- **Responsive Design**: Adapts to different screen sizes
+- **Smooth Animations**: 30 FPS game loop for fluid gameplay
 
-### Android
+## Project Structure
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```
+EmojiDodge/
+├── App.tsx              # Main game component
+├── android/             # Android-specific files
+├── ios/                 # iOS-specific files
+├── __tests__/           # Test files
+├── package.json         # Dependencies and scripts
+├── tsconfig.json        # TypeScript configuration
+└── README.md            # This file
 ```
 
-### iOS
+## Contributing
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Feel free to fork this project and add new features like:
+- Power-ups and special abilities
+- Different difficulty levels
+- Leaderboards
+- Sound effects and music
+- Additional emoji themes
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## License
 
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
+This project is open source and available under the MIT License.
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
